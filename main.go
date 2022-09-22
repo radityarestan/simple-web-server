@@ -7,7 +7,7 @@ import (
 
 func main() {
 	server := http.Server{
-		Addr: "localhost:8080",
+		Addr: ":8080",
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -17,6 +17,7 @@ func main() {
 	log.Println("Server running on port 8080")
 	err := server.ListenAndServe()
 	if err != nil {
+		log.Println("Error starting server: ", err)
 		panic(err)
 	}
 }
