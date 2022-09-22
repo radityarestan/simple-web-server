@@ -6,7 +6,9 @@ import (
 )
 
 func main() {
-	server := http.Server{}
+	server := http.Server{
+		Addr: "0.0.0.0:8080",
+	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello, World!"))
