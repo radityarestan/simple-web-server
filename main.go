@@ -3,11 +3,17 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	server := http.Server{
-		Addr: "0.0.0.0:8080",
+		Addr: "0.0.0.0:" + port,
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
