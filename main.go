@@ -12,7 +12,7 @@ func main() {
 		w.Write([]byte("Hello, World!"))
 	})
 
-	log.Println("Server running on port")
+	log.Printf("Server running on %s", server.Addr)
 	err := server.ListenAndServe()
 	if err != nil {
 		log.Println("Error starting server: ", err)
