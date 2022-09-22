@@ -6,15 +6,13 @@ import (
 )
 
 func main() {
-	server := http.Server{
-		Addr: ":8080",
-	}
+	server := http.Server{}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello, World!"))
 	})
 
-	log.Println("Server running on port 8080")
+	log.Println("Server running on port")
 	err := server.ListenAndServe()
 	if err != nil {
 		log.Println("Error starting server: ", err)
